@@ -1,0 +1,45 @@
+﻿@model IEnumerable<WebApp_OOP_Lr9.DataBase.FinancingOption>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link href="~/css/site.css" rel="stylesheet" />
+
+<body>
+    <header class="header">
+        <h1>Умови фінансування</h1>
+        <div>
+            <a asp-controller="Home" asp-action="Index">Головна</a> |
+            <a asp-controller="NewBuildingss" asp-action="Index">Нововбудови</a> |
+            <a asp-action="Create" asp-route-BuildId="@ViewData["NewBuildingId"]">Додати</a> |
+            <a asp-controller="NewBuildingss" asp-action="Details" asp-route-id="@ViewData["NewBuildingId"]">Назад</a>
+        </div>
+    </header>
+
+    <main>
+        @if (Model.Any())
+        {
+            <div class="centrBox">
+                <div class="grid" style="z-index: 10;">
+                    @foreach (var item in Model)
+                    {
+                        <div class="blogCell">
+                            <h2>@item.Caption</h2>
+                            <p>Опис: @item.Description</p>
+
+                            <div class="PageLink">
+                                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+        else
+        {
+            <h1>Умови фінансування не додані</h1>
+        }
+    </main>
+</body>

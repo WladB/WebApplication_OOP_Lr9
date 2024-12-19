@@ -1,0 +1,44 @@
+﻿@model WebApp_OOP_Lr9.DataBase.FinancingOption
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<link href="/css/site.css" rel="stylesheet" />
+<header class="header">
+    <h1>Видалення умови фінансування</h1>
+    <div>
+    <a asp-controller="Home" asp-action="Index">Головна</a> |
+    <a asp-controller="NewBuildingss" asp-action="Index">Новобудови</a> |
+    <a asp-route-BuildId="@Model.NewBuildingId" asp-action="Index">Назад</a>
+    </div>
+</header>
+<main class="main">
+<div class="formCentr">
+
+    <div class="formStyle">
+        <div>
+           <h3>Чи дійсно ви хочете видалити вказану нижче умову фінансування?</h3>
+        </div>
+        <div class="labl-bold">
+            @Html.DisplayNameFor(model => model.Caption)
+        </div>
+        <div class="labl-small">
+            @Html.DisplayFor(model => model.Caption)
+        </div>
+        <div class="labl-bold">
+            @Html.DisplayNameFor(model => model.Description)
+        </div>
+        <div class="labl-small">
+            @Html.DisplayFor(model => model.Description)
+        </div>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="Caption" />
+            <input type="hidden" asp-for="NewBuildingId" />
+            <input type="hidden" asp-for="Description" />
+            <input type="submit" value="Delete" class="button" />
+
+        </form>
+    </div>
+</div>
+<main/>

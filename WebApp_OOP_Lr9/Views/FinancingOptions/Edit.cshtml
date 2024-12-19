@@ -1,0 +1,41 @@
+﻿@model WebApp_OOP_Lr9.DataBase.FinancingOption
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<link href="/css/site.css" rel="stylesheet" />
+<header class="header">
+    <h1>Редагування даних умов фінансування</h1>
+    <div>
+    <a asp-controller="Home" asp-action="Index">Головна</a> |
+    <a asp-controller="NewBuildingss" asp-action="Index">Новобудови</a> |
+    <a asp-route-BuildId="@Model.NewBuildingId" asp-action="Index">Назад</a>
+    </div>
+</header>
+
+<main class="main">
+<div class="formCentr">
+    <form asp-action="Edit" class="formStyle">
+            @Html.AntiForgeryToken()
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <div>
+            <label asp-for="Caption" class="control-label"></label>
+            <input asp-for="Caption" class="FormField" />
+            <span asp-validation-for="Caption" class="text-danger"></span>
+        </div>
+        <div>
+            <input type="hidden" asp-for="NewBuildingId" />
+        </div>
+        <div>
+            <label asp-for="Description" class="control-label"></label>
+            <input asp-for="Description" class="FormField" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div>
+            <input type="submit" value="Save" class="button" />
+        </div>
+    </form>
+</div>
+</main>

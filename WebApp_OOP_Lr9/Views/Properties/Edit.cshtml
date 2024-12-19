@@ -1,0 +1,47 @@
+﻿@model WebApp_OOP_Lr9.DataBase.Property
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<link href="/css/site.css" rel="stylesheet" />
+<body>
+<header class="header">
+    <h1>Редагування даних квартири</h1>
+        <div>
+        <a asp-controller="Home" asp-action="Index">Головна</a> |
+        <a asp-controller="NewBuildingss" asp-action="Index">Новобудови</a> |
+        <a asp-route-BuildId="@Model.NewBuildingId" asp-action="Index">Назад</a>
+        </div>
+</header>
+
+<main class="main">
+<div class="formCentr">
+        <form asp-action="Edit" class="formStyle">
+                @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div>
+                <label asp-for="CountRooms" class="control-label"></label>
+            <input asp-for="CountRooms" class="FormField"  />
+                <span asp-validation-for="CountRooms" class="text-danger"></span>
+            </div>
+            <div>
+                <input type="hidden" asp-for="NewBuildingId" />
+            </div>
+            <div>
+                <label asp-for="Area" class="control-label"></label>
+            <input asp-for="Area" class="FormField" />
+                <span asp-validation-for="Area" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Floor" class="control-label"></label>
+            <input asp-for="Floor" class="FormField" />
+                <span asp-validation-for="Floor" class="text-danger"></span>
+            </div>
+            <div>
+            <input type="submit" value="Save" class="button" />
+            </div>
+        </form>
+    </div>
+    </main>
+</body>

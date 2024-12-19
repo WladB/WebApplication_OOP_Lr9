@@ -1,0 +1,41 @@
+﻿@model WebApp_OOP_Lr9.DataBase.NewBuilding
+
+@{
+    ViewData["Title"] = "Create";
+}
+<link href="/css/site.css" rel="stylesheet" />
+
+<header class="header">
+    <h1>Додати новобудову</h1>
+    <div>
+        <a asp-controller="Home" asp-action="Index">Головна</a> |
+        <a asp-action="Index">Назад</a>
+    </div>
+</header>
+
+<main class="main">
+    <div>
+        <form class="formCentr" asp-action="Create" method="post">
+            @Html.AntiForgeryToken()
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="formStyle">
+                <div>
+                    <label asp-for="Caption"></label>
+                    <input class="FormField" asp-for="Caption" />
+                    <span asp-validation-for="Caption"></span>
+                </div>
+                <div>
+                    <label asp-for="Address"></label>
+                    <input class="FormField" asp-for="Address" />
+                    <span asp-validation-for="Address"></span>
+                </div>
+                <div>
+                    <input type="submit" value="Create" class="button" />
+                </div>
+            </div>
+        </form>
+    </div>
+        </main>
+           

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<WebApp_OOP_Lr9.DataBase.Property>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link href="~/css/site.css" rel="stylesheet" />
+
+<body>
+    <header class="header">
+        <h1>Квартири будинку</h1>
+        <div>
+            <a asp-controller="Home" asp-action="Index">Головна</a> |
+            <a asp-controller="NewBuildingss" asp-action="Index">Новобудови</a> |
+            <a asp-action="Create" asp-route-BuildId="@ViewData["NewBuildingId"]">Додати квартиру</a> |
+            <a asp-controller="NewBuildingss" asp-action="Details" asp-route-id="@ViewData["NewBuildingId"]">Назад</a> 
+        </div>
+    </header>
+
+    <main>
+        @if (Model.Any())
+        {
+            <div class="centrBox">
+                <div class="grid" style="z-index: 10;">
+                    @foreach (var item in Model)
+                    {
+                        <div class="blogCell">
+                            @switch (item.CountRooms)
+                            {
+                                case 1:
+                                    <h2>Однокімнатна квартира</h2>
+                                    break;
+                                case 2:
+                                    <h2>Двокімнатна квартира</h2>
+                                    break;
+                                case 3:
+                                    <h2>Трьохкімнатна квартира</h2>
+                                    break;
+                                case 4:
+                                    <h2>Чотирикімнатна квартира</h2>
+                                    break;
+                                case 5:
+                                    <h2>П'ятикімнатна квартира</h2>
+                                    break;
+                                default:
+                                    <h2>Квартира з невизначеною кількістю кімнат</h2>
+                                    break;
+                            }
+                            <p>Площа: @item.Area м²</p>
+                            <p>Поверх: @item.Floor</p>
+                            <div class="PageLink">
+                                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+        else
+        {
+            <h1>Доступних квартир поки що немає :(</h1>
+        }
+    </main>
+</body>

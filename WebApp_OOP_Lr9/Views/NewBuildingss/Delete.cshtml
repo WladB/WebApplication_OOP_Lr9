@@ -1,0 +1,44 @@
+﻿@model WebApp_OOP_Lr9.DataBase.NewBuilding
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<link href="/css/site.css" rel="stylesheet" />
+<body>
+<header class="header">
+<h1>Видалення новобудови</h1>
+        <div>
+            <a asp-controller="Home" asp-action="Index">Головна</a> |
+            <a asp-action="Index">Назад</a>
+        </div>
+</header>
+
+    <main class="main">
+<div class="formCentr">
+    
+    <div class="formStyle">
+        <div>
+            <h3>Чи дійсно ви хочете видалити вказану нижче новобудову?</h3>
+        </div>
+        <div class="labl-bold">
+            @Html.DisplayNameFor(model => model.Caption)
+        </div>
+        <div class="labl-small">
+            @Html.DisplayFor(model => model.Caption)
+        </div>
+        <div class="labl-bold">
+            @Html.DisplayNameFor(model => model.Address)
+        </div>
+            <div class="labl-small">
+            @Html.DisplayFor(model => model.Address)
+        </div>
+        <div>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Delete" class="button" />
+    </form>
+      </div>
+</div>
+</div>
+        </main>
+</body>

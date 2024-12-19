@@ -1,0 +1,42 @@
+﻿@model WebApp_OOP_Lr9.DataBase.NewBuilding
+
+@{
+    ViewData["Title"] = "Details";
+}
+<link href="/css/site.css" rel="stylesheet" />
+<body>
+    <header class="header">
+<h1>Про новобудову</h1>
+        <div>
+            <a asp-controller="Home" asp-action="Index">Головна</a> |
+            <a asp-action="Index">Назад</a>
+        </div>
+    </header>
+
+    <main class="main">
+<div class="formCentr">
+    <div class="formStyle">
+       <h2>Новобудова:</h2>
+        <div class="labl-bold">
+            @Html.DisplayNameFor(model => model.Caption)
+        </div>
+        <div class="labl-small">
+            @Html.DisplayFor(model => model.Caption)
+        </div>
+        <div class="labl-bold">
+            @Html.DisplayNameFor(model => model.Address)
+        </div>
+        <div class="labl-small">
+            @Html.DisplayFor(model => model.Address)
+        </div>
+    </div>
+
+            <div class="formStyle">
+            <a class="labl-bold" asp-controller="Properties" asp-route-BuildId="@Model.Id" asp-action="Index">Переглянути доступні квартири</a>
+            </div>
+            <div class="formStyle">
+                <a class="labl-bold" asp-controller="FinancingOptions" asp-route-BuildId="@Model.Id" asp-action="Index">Переглянути умови фінансування</a>
+            </div>
+        </div>
+    </main>
+</body>

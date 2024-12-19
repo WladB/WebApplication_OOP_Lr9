@@ -1,0 +1,42 @@
+﻿@model WebApp_OOP_Lr9.DataBase.NewBuilding
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<link href="/css/site.css" rel="stylesheet" />
+<body>
+    <header class="header">
+        <h1>Редагування новобудови</h1>
+        <div>
+        <a asp-controller="Home" asp-action="Index">Головна</a> |
+        <a asp-action="Index">Назад</a>
+        </div>
+    </header>
+
+    <main class="main">
+    <div>
+        <form asp-action="Edit" class="formCentr">
+                @Html.AntiForgeryToken()
+                <div asp-validation-summary="ModelOnly"></div>
+                <input type="hidden" asp-for="Id" />
+            <div class="formStyle">
+                <div>
+                    <label asp-for="Caption"></label>
+                    <input class="FormField" asp-for="Caption" />
+                    <span asp-validation-for="Caption"></span>
+                </div>
+                <div>
+                    <label asp-for="Address"></label>
+                    <input class="FormField" asp-for="Address" />
+                    <span asp-validation-for="Address"></span>
+                </div>
+                <div>
+                    <input type="submit" value="Save" class="button" />
+                </div>
+            </div>
+        </form>
+
+    </div>
+        </main>
+</body>
+
